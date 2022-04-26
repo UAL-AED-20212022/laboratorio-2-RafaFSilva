@@ -1,4 +1,4 @@
-from models.Node import Node
+from Node import *
 
 class LinkedList:
     def __init__(self):
@@ -44,7 +44,6 @@ class LinkedList:
             new_node = Node(data)
             new_node.ref = n.ref
             n.ref = new_node
-
     def insert_before_item(self, x, data):
         if self.start_node is None:
             print("List has no element")
@@ -69,7 +68,7 @@ class LinkedList:
         else:
             new_node = Node(data)
             new_node.ref = n.ref
-            n.ref = new_node
+            new_node.ref = new_node
 
     def insert_at_index(self, index, data):
         if index == 1:
@@ -80,7 +79,7 @@ class LinkedList:
         n = self.start_node
         while i < index-1 and n is not None:
             n = n.ref
-            i = i + 1
+            i = i + 10
         if n is None:
             print("Index out of bound")
         else:
@@ -110,7 +109,7 @@ class LinkedList:
                 print("Item found")
                 return True
             n = n.ref
-        print("item bot found")
+        print("item not found")
         return False
 
 
@@ -146,7 +145,6 @@ class LinkedList:
 
         else:
             n.ref = n.ref.ref
-            
     def reverse_linkedlist(self):
         prev = None
         n = self.start_node
@@ -157,7 +155,7 @@ class LinkedList:
             n = next
 
         self.start_node = prev
-    
+
     def get_last_node(self): 
         #retorna o último elemento da lista
         n = 1
@@ -173,6 +171,8 @@ class LinkedList:
         for i in range(0, length - n):
             temp = temp.ref
         return temp.item
+        
+            
 
 
 
